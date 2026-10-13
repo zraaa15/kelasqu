@@ -5,12 +5,20 @@
 @section('content')
 <main class="home-page">
     <nav class="navbar navbar-expand-lg draque-nav">
-        <div class="container">
+        <div class="container app-shell-nav">
             <a class="brand" href="{{ route('home') }}">
                 <span class="brand-mark">♡</span>
                 <span>Draque<span class="brand-period">.</span></span>
             </a>
-            <div class="d-flex align-items-center gap-3">
+
+            <div class="d-flex align-items-center gap-3 app-nav-actions">
+                <div class="app-menu-list d-none d-lg-flex">
+                    <a href="{{ route('home') }}" class="app-menu-item active">Beranda</a>
+                    <a href="#" class="app-menu-item">Series</a>
+                    <a href="#" class="app-menu-item">Genre</a>
+                    <a href="#" class="app-menu-item">Favorit</a>
+                    <a href="#" class="app-menu-item">Koleksi</a>
+                </div>
                 <span class="welcome-user d-none d-sm-inline">Hai, {{ auth()->user()->name }} ✨</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -26,13 +34,24 @@
                 <span class="eyebrow">SELAMAT DATANG DI DRAQUE</span>
                 <h1>Waktunya <span>baper</span> lagi, {{ auth()->user()->name }} ♡</h1>
                 <p>Pilih cerita yang pas dengan suasana hatimu hari ini.</p>
-                <a href="#pilihan-cerita" class="btn btn-draque">Jelajahi cerita <span aria-hidden="true">↓</span></a>
+                <div class="welcome-actions">
+                    <a href="#pilihan-cerita" class="btn btn-draque">Jelajahi cerita <span aria-hidden="true">↓</span></a>
+                    <button type="button" class="btn btn-light-outline">Lanjut episode</button>
+                </div>
             </div>
             <div class="welcome-decoration" aria-hidden="true">
                 <span class="welcome-play">▶</span>
                 <span class="welcome-heart">♡</span>
                 <span class="welcome-sparkle">✦</span>
             </div>
+        </section>
+
+        <section class="menu-strip" aria-label="Menu utama Draque">
+            <a href="#" class="menu-pill active"><span>⌂</span> Beranda</a>
+            <a href="#" class="menu-pill"><span>▶</span> Tayang hari ini</a>
+            <a href="#" class="menu-pill"><span>✦</span> Trending</a>
+            <a href="#" class="menu-pill"><span>♡</span> Favorit</a>
+            <a href="#" class="menu-pill"><span>☰</span> Selengkapnya</a>
         </section>
 
         <section id="pilihan-cerita" class="story-section">
